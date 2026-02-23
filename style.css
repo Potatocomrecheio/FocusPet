@@ -1,0 +1,47 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:linear-gradient(135deg,#0f172a,#0ea5e9);color:white;transition:.4s}
+
+header{display:flex;justify-content:space-between;align-items:center;padding:20px 8%}
+.logo{font-weight:800;font-size:1.5rem}
+nav a{margin-left:25px;text-decoration:none;color:white;font-weight:500}
+
+.toggle{
+cursor:pointer;border:1px solid rgba(255,255,255,.4);
+padding:8px 14px;border-radius:20px;font-size:.9rem
+}
+
+.hero{display:flex;align-items:center;justify-content:space-between;padding:60px 8%;flex-wrap:wrap}
+.hero-text{max-width:550px}
+.hero-text h1{font-size:3rem;margin-bottom:20px}
+.hero-text p{opacity:.9;margin-bottom:30px;line-height:1.6}
+
+.btn{display:inline-block;background:white;color:#0ea5e9;padding:14px 28px;border-radius:30px;font-weight:600;text-decoration:none;transition:.3s}
+.btn:hover{transform:scale(1.05)}
+
+.phone{width:280px;height:560px;background:#0f172a;border-radius:40px;padding:15px;box-shadow:0 20px 60px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center}
+.screen{width:100%;height:100%;border-radius:30px;background:linear-gradient(#0ea5e9,#0369a1);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
+.pet{width:120px;height:120px;border-radius:50%;background:white;margin-bottom:20px}
+
+section{padding:80px 8%;text-align:center}
+
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:25px;margin-top:40px}
+.card{background:rgba(255,255,255,.1);padding:30px;border-radius:20px;backdrop-filter:blur(10px);transition:.3s}
+.card:hover{transform:translateY(-8px) scale(1.02)}
+
+.test-box{margin-top:40px;background:rgba(255,255,255,.1);padding:40px;border-radius:25px}
+.timer{font-size:3rem;margin:20px 0;font-weight:700}
+
+.test-btn{background:white;color:#0ea5e9;border:none;padding:12px 22px;margin:5px;border-radius:20px;font-weight:600;cursor:pointer}
+
+.testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;margin-top:40px}
+.quote{background:rgba(255,255,255,.1);padding:25px;border-radius:20px;font-size:.95rem}
+
+footer{text-align:center;padding:30px;opacity:.7}
+
+.dark{background:#020617}
+
+@media(max-width:800px){
+.hero{flex-direction:column;text-align:center}
+.hero-text h1{font-size:2.2rem}
+nav{display:none}
+}

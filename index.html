@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FocusPet</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+<div class="logo">🐾 FocusPet</div>
+<div>
+<span class="toggle" onclick="toggleMode()">Modo Escuro</span>
+</div>
+</header>
+
+<section class="hero">
+<div class="hero-text">
+<h1>Foque e evolua com seu pet</h1>
+<p>Transforme produtividade em diversão. Quanto mais foco você tem, mais seu pet cresce.</p>
+<a class="btn">Download em breve</a>
+</div>
+
+<div class="phone">
+<div class="screen">
+<div class="pet"></div>
+<h2>FocusPet</h2>
+<p id="status">Pronto para focar</p>
+</div>
+</div>
+</section>
+
+<section>
+<h2>Funcionalidades</h2>
+<div class="features">
+<div class="card"><h3>⏱ Timer Foco</h3><p>Sessões inteligentes de concentração.</p></div>
+<div class="card"><h3>🚫 Anti-Distração</h3><p>Bloqueia apps durante foco.</p></div>
+<div class="card"><h3>🎯 Metas</h3><p>Objetivos diários personalizados.</p></div>
+<div class="card"><h3>📊 Progresso</h3><p>Relatórios de desempenho.</p></div>
+<div class="card"><h3>🏆 Conquistas</h3><p>Ganhe recompensas.</p></div>
+<div class="card"><h3>🐾 Evolução</h3><p>Seu pet cresce com você.</p></div>
+</div>
+</section>
+
+<section>
+<h2>Teste o Modo Foco</h2>
+<div class="test-box">
+<p>Clique em iniciar e teste a função principal do app:</p>
+<div class="timer" id="timer">00:00</div>
+<button class="test-btn" onclick="startTimer()">Iniciar</button>
+<button class="test-btn" onclick="stopTimer()">Parar</button>
+<button class="test-btn" onclick="resetTimer()">Resetar</button>
+</div>
+</section>
+
+<section>
+<h2>O que usuários diriam</h2>
+<div class="testimonials">
+<div class="quote">"Nunca consegui focar tanto estudando. Viciante!"</div>
+<div class="quote">"Meu pet evoluindo me motiva demais."</div>
+<div class="quote">"Simples, bonito e útil."</div>
+</div>
+</section>
+
+<footer>
+© 2026 FocusPet
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
