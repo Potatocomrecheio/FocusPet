@@ -1,75 +1,240 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FocusPet</title>
 
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FocusPet Pro | RPG de Foco</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
 </head>
+
 <body>
 
-<header>
-<div class="logo">🐾 FocusPet</div>
-<div>
-<span class="toggle" onclick="toggleMode()">Modo Escuro</span>
-</div>
-</header>
 
-<section class="hero">
-<div class="hero-text">
-<h1>Foque e evolua com seu pet</h1>
-<p>Transforme produtividade em diversão. Quanto mais foco você tem, mais seu pet cresce.</p>
-<a class="btn">Download em breve</a>
-</div>
 
-<div class="phone">
-<div class="screen">
-<div class="pet"></div>
-<h2>FocusPet</h2>
-<p id="status">Pronto para focar</p>
-</div>
-</div>
-</section>
+    <div class="app-container">
 
-<section>
-<h2>Funcionalidades</h2>
-<div class="features">
-<div class="card"><h3>⏱ Timer Foco</h3><p>Sessões inteligentes de concentração.</p></div>
-<div class="card"><h3>🚫 Anti-Distração</h3><p>Bloqueia apps durante foco.</p></div>
-<div class="card"><h3>🎯 Metas</h3><p>Objetivos diários personalizados.</p></div>
-<div class="card"><h3>📊 Progresso</h3><p>Relatórios de desempenho.</p></div>
-<div class="card"><h3>🏆 Conquistas</h3><p>Ganhe recompensas.</p></div>
-<div class="card"><h3>🐾 Evolução</h3><p>Seu pet cresce com você.</p></div>
-</div>
-</section>
+        <header>
 
-<section>
-<h2>Teste o Modo Foco</h2>
-<div class="test-box">
-<p>Clique em iniciar e teste a função principal do app:</p>
-<div class="timer" id="timer">00:00</div>
-<button class="test-btn" onclick="startTimer()">Iniciar</button>
-<button class="test-btn" onclick="stopTimer()">Parar</button>
-<button class="test-btn" onclick="resetTimer()">Resetar</button>
-</div>
-</section>
+            <div class="logo-area">
 
-<section>
-<h2>O que usuários diriam</h2>
-<div class="testimonials">
-<div class="quote">"Nunca consegui focar tanto estudando. Viciante!"</div>
-<div class="quote">"Meu pet evoluindo me motiva demais."</div>
-<div class="quote">"Simples, bonito e útil."</div>
-</div>
-</section>
+                <span id="pet-evolution-icon" class="logo-icon">🐣</span>
 
-<footer>
-© 2026 FocusPet
-</footer>
+                <div>
 
-<script src="script.js"></script>
+                    <h1>FocusPet</h1>
+
+                    <p class="subtitle">Nível <span id="lvl-display">1</span> • <span id="pet-rank">Iniciante</span></p>
+
+                </div>
+
+            </div>
+
+            <div class="header-right">
+
+                <div class="coin-display">🪙 <span id="coin-count">0</span></div>
+
+                <div class="xp-container">
+
+                    <div id="xp-fill" class="xp-fill"></div>
+
+                </div>
+
+                <button class="theme-toggle" onclick="toggleMode()">🌓</button>
+
+            </div>
+
+        </header>
+
+
+
+        <main>
+
+            <section class="focus-section">
+
+                <div class="pet-card" id="pet-card">
+
+                    <div class="pet-avatar">
+
+                        <img id="pet-img" src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="Pet">
+
+                    </div>
+
+                    <div class="pet-speech">
+
+                        <p id="status-text">Selecione uma meta para começar!</p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="timer-card">
+
+                    <div class="ambient-sounds">
+
+                        <button onclick="toggleAmbient('rain', this)" class="sound-btn">🌧️ Chuva</button>
+
+                        <button onclick="toggleAmbient('lofi', this)" class="sound-btn">🎵 Lo-fi</button>
+
+                    </div>
+
+
+
+                    <div class="timer-display" id="timer">25:00</div>
+
+                    <input type="range" id="duration-slider" min="5" max="120" value="25" oninput="updateDurationSetting()">
+
+                    
+
+                    <div class="timer-controls">
+
+                        <button onclick="startTimer()" id="start-btn" class="btn-primary">Iniciar Foco</button>
+
+                        <div class="btn-group-row">
+
+                            <button onclick="stopTimer()" class="btn-outline">Pausar</button>
+
+                            <button onclick="resetTimer()" class="btn-outline">Resetar</button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <section class="dashboard-section">
+
+                <div class="card tasks">
+
+                    <div class="tab-nav">
+
+                        <button onclick="switchTab('pending')" id="tab-btn-pending" class="active">Pendentes</button>
+
+                        <button onclick="switchTab('completed')" id="tab-btn-completed">Concluídas</button>
+
+                        <button onclick="switchTab('shop')" id="tab-btn-shop">🏪 Loja</button>
+
+                    </div>
+
+
+
+                    <div id="pending-container">
+
+                        <div class="input-group">
+
+                            <input type="text" id="task-input" placeholder="Nova meta de foco...">
+
+                            <button onclick="addTask()" class="add-btn">+</button>
+
+                        </div>
+
+                        <ul id="task-list"></ul>
+
+                    </div>
+
+
+
+                    <div id="completed-container" class="hidden">
+
+                        <ul id="completed-list"></ul>
+
+                    </div>
+
+
+
+                    <div id="shop-container" class="hidden">
+
+                        <div class="shop-grid">
+
+                            <div class="shop-item">
+
+                                <div class="shop-info">
+
+                                    <span class="shop-name">🧪 Poção XP</span>
+
+                                    <span class="shop-desc">Ganha +50 XP instantâneo</span>
+
+                                </div>
+
+                                <button onclick="buyItem('Poção de XP', 50)" class="buy-btn">50 🪙</button>
+
+                            </div>
+
+                            <div class="shop-item">
+
+                                <div class="shop-info">
+
+                                    <span class="shop-name">🎩 Chapéu</span>
+
+                                    <span class="shop-desc">Estilo para seu pet</span>
+
+                                </div>
+
+                                <button onclick="buyItem('Chapéu', 150)" class="buy-btn">150 🪙</button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="card stats">
+
+                    <h3>📊 Estatísticas</h3>
+
+                    <div class="stats-grid">
+
+                        <div class="stat-box">
+
+                            <small>Tempo Focado</small>
+
+                            <p id="total-minutes">0m</p>
+
+                        </div>
+
+                        <div class="stat-box">
+
+                            <small>Sessões</small>
+
+                            <p id="total-sessions">0</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+
+    <script src="script.js"></script>
+
 </body>
+
 </html>
+
